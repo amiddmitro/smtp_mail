@@ -15,7 +15,7 @@ with open("data.txt", "r") as file:
 
 # Параметры SMTP сервера
 smtp_server = 'smtp.yandex.ru'
-port = 465  #с безопасным соединением порт 465. В случае, если вы не можете воспользоваться безопасным соединением, вы можете подключиться к SMTP-серверу по портам 25 или 587
+port = 587  #с безопасным соединением порт 465. В случае, если вы не можете воспользоваться безопасным соединением, вы можете подключиться к SMTP-серверу по портам 25 или 587
 email_user = 'Garant.ZV@ya.ru'
 email_password = 'ufCImpFH' # пароль почты Заитов
 
@@ -40,7 +40,7 @@ msg.attach(part)
 for email in emails:
     msg['To'] = email
     print(1)
-    server = smtplib.SMTP_SSL(smtp_server, port)
+    server = smtplib.SMTP(smtp_server, port)
     server.starttls()
     print(2)
     server.login(email_user, email_password)
