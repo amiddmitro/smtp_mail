@@ -40,6 +40,7 @@ msg.attach(part)
 for email in emails:
     msg['To'] = email
     print(1)
+    
     server = smtplib.SMTP(smtp_server, port)
     server.starttls()
     print(2)
