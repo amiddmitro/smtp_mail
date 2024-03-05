@@ -39,21 +39,10 @@ msg.attach(part)
 # Отправляем письмо каждому адресу в списке
 for email in emails:
     msg['To'] = email
-#    server = smtplib.SMTP_SSL('smtp.yandex.ru:465')
-    print(f'{smtp_server}:{port}')
-    with smtplib.SMTP_SSL(smtp_server, port) as server:
-
-        server.login(email_user, email_password)
-        server.send_message(msg)
-
-
-
-#     server = smtplib.SMTP_SSL(f'{smtp_server}:{port}')
-# #    server = smtplib.SMTP(smtp_server, port)
-#     server.starttls()
-    print(email_user, email_password  , 2)
-#     server.login(email_user, email_password)
-#     server.send_message(msg)
+    server = smtplib.SMTP(smtp_server, port)
+     server.starttls()
+     server.login(email_user, email_password)
+     server.send_message(msg)
     server.quit()
 
 print("Emails sent successfully.")
