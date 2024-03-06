@@ -16,7 +16,7 @@ with open("data.txt", "r") as file:
 # Параметры SMTP сервера
 smtp_server = 'smtp.gmail.com'
 port = 587  #с безопасным соединением порт 465. В случае, если вы не можете воспользоваться безопасным соединением, вы можете подключиться к SMTP-серверу по портам 25 или 587
-email_user = '1922dvs@gmaul.com'
+email_user = '1922dvs@gmail.com'
 email_password = 'TDxax36H' # пароль почты
 
 
