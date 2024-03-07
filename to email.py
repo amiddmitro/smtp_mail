@@ -14,10 +14,10 @@ with open("data.txt", "r") as file:
     emails = file.read().split(",")
 
 # Параметры SMTP сервера
-smtp_server = 'smtp.gmail.com'
-port = 587  #с безопасным соединением порт 465. В случае, если вы не можете воспользоваться безопасным соединением, вы можете подключиться к SMTP-серверу по портам 25 или 587
-email_user = '1922dvs@gmail.com'
-email_password = 'TDxax36H' # пароль почты
+smtp_server = 'smtp.yandex.com'
+port = 465  #с безопасным соединением порт 465. В случае, если вы не можете воспользоваться безопасным соединением, вы можете подключиться к SMTP-серверу по портам 25 или 587
+email_user = 'Garant.ZV@yandex.ru'
+email_password = 'ibmflvtbhwzcuevg' # пароль почты
 
 
 # Создаем сообщение
@@ -41,8 +41,8 @@ for email in emails:
     msg['To'] = email
     print(1)
     
-    server = smtplib.SMTP(smtp_server, port)
-    server.starttls()
+    server = smtplib.SMTP_SSL(smtp_server, port)
+#    server.starttls()
     print(2)
     server.login(email_user, email_password)
     print(3)
