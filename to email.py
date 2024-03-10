@@ -10,7 +10,7 @@ from email import encoders
 import re
 
 # Открываем файл и читаем его содержимое
-with open('data1.txt', 'r') as file:
+with open('data.txt', 'r') as file:
     data = file.read()
 
 # Находим все электронные адреса, исключая "@ngs.ru" и "@admnsk.ru"
