@@ -7,11 +7,21 @@ from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 from email.mime.base import MIMEBase
 from email import encoders
+import re
 
-# Открываем файл для чтения
-with open("data.txt", "r") as file:
-    # Читаем данные из файла
-    emails = file.read().split(",")
+# Открываем файл и читаем его содержимое
+with open('data1.txt', 'r') as file:
+    data = file.read()
+
+# Находим все электронные адреса, исключая "@ngs.ru" и "@admnsk.ru"
+emails = re.findall(r'<([^<>]+)>', data)
+filtered_emails = [email for email in emails if not email.endswith('@ngs.ru') and not email.endswith('@admnsk.ru')]
+
+#Сохраняем в файл список адресов
+file = open('emails.txt', 'w')
+for email in filtered_emails:
+    file.write(f'{email}, ')
+file.close
 
 # Параметры SMTP сервера
 smtp_server = 'smtp.yandex.com'
@@ -39,7 +49,7 @@ msg.attach(part)
 
 # Отправляем письмо каждому адресу в списке
 # 
-for email in emails:
+for email in filtered_emails:
     msg['To'] = email
     print(email)
     print(1)
